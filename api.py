@@ -233,3 +233,6 @@ def server_error(error):
         "error": 403,
         "message": "Forbidden"
         }), 403
+
+if __name__ == 'api':
+    app.run(host='127.0.0.1', port=8080, debug=True)
