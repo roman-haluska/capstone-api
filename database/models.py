@@ -5,10 +5,12 @@ import json
 
 USER = os.environ.get('USER', None)
 PASSWORD = os.environ.get('PASSWORD', None)
+HOST = os.environ.get('HOST', None)
+PORT = os.environ.get('PORT', None)
+DATABASE = os.environ.get('DATABASE', None)
 
-database_name = "capstone"
 project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "postgres://{}/{}".format('{$USER}:{$PASSWORD}@database-1.cxky32iwbam5.eu-central-1.rds.amazonaws.com:5432', database_name)
+database_path = "postgres://{}:{}@{}:{}/{}".format(USER, PASSWORD, HOST, PORT, DATABASE)
 
 db = SQLAlchemy(session_options={"expire_on_commit": False})
 
@@ -21,6 +23,7 @@ def setup_db(app):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
+    db_drop_and_create_all()
 
 '''
 db_drop_and_create_all()

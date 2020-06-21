@@ -234,5 +234,5 @@ def server_error(error):
         "message": "Forbidden"
         }), 403
 
-if __name__ == 'main':
+if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
