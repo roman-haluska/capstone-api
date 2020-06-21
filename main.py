@@ -39,7 +39,9 @@ def get_drinks_short():
     try:
         print("ahoj", flush=True)
         drinks = Drink.query.all()
-        formatted_drinks = [drink.short() for
+        formatted_drinks = []
+        if drinks is not None:
+            formatted_drinks = [drink.short() for
                                     drink in drinks]
     except Exception as e:
         print(e, flush=True)
