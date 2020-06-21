@@ -37,10 +37,9 @@ def after_request(response):
 def get_drinks_short():
     error = False
     try:
-        print("ahoj", flush=True)
         drinks = Drink.query.all()
         formatted_drinks = []
-        if drinks is not None:
+        if (len(drinks)>0):
             formatted_drinks = [drink.short() for
                                     drink in drinks]
     except Exception as e:
