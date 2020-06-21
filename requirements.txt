@@ -21,3 +21,4 @@ python-jose
 gunicorn
 Flask-Cors
 pyopenssl
+requests
