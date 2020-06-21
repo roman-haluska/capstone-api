@@ -41,6 +41,7 @@ def get_drinks_short():
         formatted_drinks = [drink.short() for
                                     drink in drinks]
     except Exception as e:
+        print(e)
         error = True
     finally:
         if error:
